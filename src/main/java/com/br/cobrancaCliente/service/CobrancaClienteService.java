@@ -8,5 +8,5 @@ public interface CobrancaClienteService {
 
     List<Cliente> listarClientes();
     
-    Cliente cobrarEmail(Cliente cliente);
+    String cobrarEmail(Cliente cliente);
 }

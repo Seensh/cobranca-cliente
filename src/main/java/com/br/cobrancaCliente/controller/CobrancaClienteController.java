@@ -5,7 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,14 +31,11 @@ public class CobrancaClienteController {
 	
 	@RequestMapping(value = "/cobrancaemail", method = RequestMethod.POST)
 	public ResponseEntity<String> cobrancaEmail(Cliente cliente){
-		 if (0==1) {
-		        return ResponseEntity.badRequest()
-		            .body("Algo deu errado!");
-		    }
 		
 		 cobrancaClienteService.cobrarEmail(cliente);
 		 
 		return ResponseEntity.status(HttpStatus.OK)
 		        .body("Cobranca enviada com sucesso.");
 	}
+	
 }
